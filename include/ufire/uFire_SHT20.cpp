@@ -49,7 +49,6 @@ float uFire_SHT20::temperature()
   uint8_t lsb = _i2cPort->read();
   uint16_t value = msb << 8 | lsb;
   tempC = value * (175.72 / 65536.0)- 46.85;
-  tempF = ((value * (175.72 / 65536.0)- 46.85)  * 1.8) + 32;
   return tempC;
 }
 
@@ -64,7 +63,6 @@ float uFire_SHT20::temperature_f()
   uint8_t msb = _i2cPort->read();
   uint8_t lsb = _i2cPort->read();
   uint16_t value = msb << 8 | lsb;
-  tempC = value * (175.72 / 65536.0)- 46.85;
   tempF = ((value * (175.72 / 65536.0)- 46.85)  * 1.8) + 32;
   return tempF;
 }
