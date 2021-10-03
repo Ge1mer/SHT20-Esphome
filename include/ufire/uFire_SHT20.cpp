@@ -81,7 +81,10 @@ float uFire_SHT20::humidity()
   uint8_t lsb = _i2cPort->read();
   uint16_t value = msb << 8 | lsb;
   RH = value * (125.0 / 65536.0) - 6.0;
-  return RH;
+  if (RH > 100) { 
+  return 100; }
+  else {
+  return RH; }
 }
 
 float uFire_SHT20::vpd()
