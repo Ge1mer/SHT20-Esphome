@@ -12,7 +12,7 @@ class SHT20 : public PollingComponent {
   // To prevent self-heating, the datasheet warns to do
   // maximum two measurements per second at 12-bit accuracy.
   // Stay on the safe side by polling every second.
-  SHT20() : PollingComponent(1000) { }
+  SHT20() : PollingComponent(60000) { }
 
   void setup() override {
     if(!sht20.begin()) {
